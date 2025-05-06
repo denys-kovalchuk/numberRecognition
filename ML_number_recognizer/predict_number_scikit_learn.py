@@ -5,14 +5,13 @@ import numpy as np
 
 
 def get_image(name, scaler):
-
     img = Image.open(name).convert("L")
     img = img.resize((28, 28))
     img_array = np.array(img).reshape(1, -1)
     return scaler.transform(img_array)
 
 
-def main(file):
+def main(file: str) -> int:
     model, scaler = get_model()
     path = os.getcwd()
     head, tail = os.path.split(path)

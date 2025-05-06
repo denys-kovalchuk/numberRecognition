@@ -24,8 +24,7 @@ def get_model():
         x_train, y_train = open_split_data_file(
             os.path.join(
                 head,
-                "MNIST-dataset-in-different-formats-master\\"
-                "data\\CSV format\\mnist_train.csv",
+                "MNIST-dataset-in-different-formats-master\\" "data\\CSV format\\mnist_train.csv",
             )
         )
         model = train_model(x_train, y_train)
@@ -46,9 +45,7 @@ def train_model(x, y):
             layers.Dense(10, activation="softmax"),  # Output layer for 10 digits
         ]
     )
-    model.compile(
-        optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
-    )
+    model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
     model.fit(x, y, epochs=5)
     return model
 
@@ -61,8 +58,7 @@ if __name__ == "__main__":
     x_test, y_test = open_split_data_file(
         os.path.join(
             head,
-            "MNIST-dataset-in-different-formats-master\\"
-            "data\\CSV format\\mnist_test.csv",
+            "MNIST-dataset-in-different-formats-master\\" "data\\CSV format\\mnist_test.csv",
         )
     )
     test_loss, test_acc = model.evaluate(x_test, y_test)
