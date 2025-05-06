@@ -30,18 +30,17 @@ def get_model():
     head, tail = os.path.split(path)
     scaler = StandardScaler()
     print(path, head)
-    if os.path.exists(
-        "ML_number_recognizer\\digit_classifier_scikit.joblib"
-    ) and os.path.exists("ML_number_recognizer\\scaler_scikit_learn.joblib"):
-        return joblib.load(
-            "ML_number_recognizer\\digit_classifier_scikit.joblib"
-        ), joblib.load("ML_number_recognizer\\scaler_scikit_learn.joblib")
+    if os.path.exists("ML_number_recognizer\\digit_classifier_scikit.joblib") and os.path.exists(
+        "ML_number_recognizer\\scaler_scikit_learn.joblib"
+    ):
+        return joblib.load("ML_number_recognizer\\digit_classifier_scikit.joblib"), joblib.load(
+            "ML_number_recognizer\\scaler_scikit_learn.joblib"
+        )
     else:
         x_train, y_train = open_split_data_file(
             os.path.join(
                 head,
-                "MNIST-dataset-in-different-formats-master\\"
-                "data\\CSV format\\mnist_train.csv",
+                "MNIST-dataset-in-different-formats-master\\" "data\\CSV format\\mnist_train.csv",
             ),
             scaler,
         )

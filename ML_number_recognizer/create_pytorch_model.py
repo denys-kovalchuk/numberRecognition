@@ -14,7 +14,7 @@ def open_split_data_file(file):
     return x, y
 
 
-def get_model():
+def get_model() -> torch.nn.Module:
     path = os.getcwd()
     head, tail = os.path.split(path)
     if os.path.exists("digit_classifier_tensorflow.keras"):
@@ -26,8 +26,7 @@ def get_model():
         x_train, y_train = open_split_data_file(
             os.path.join(
                 head,
-                "MNIST-dataset-in-different-formats-master\\"
-                "data\\CSV format\\mnist_train.csv",
+                "MNIST-dataset-in-different-formats-master\\" "data\\CSV format\\mnist_train.csv",
             )
         )
         model = train_model(x_train, y_train)
@@ -52,9 +51,7 @@ def train_model(x, y):
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
-        print(
-            f"Epoch {epoch + 1}/{epochs}, Loss: {running_loss / len(train_loader):.4f}"
-        )
+        print(f"Epoch {epoch + 1}/{epochs}, Loss: {running_loss / len(train_loader):.4f}")
     model.eval()
     return model
 
@@ -84,8 +81,7 @@ if __name__ == "__main__":
     x_test, y_test = open_split_data_file(
         os.path.join(
             head,
-            "MNIST-dataset-in-different-formats-master\\"
-            "data\\CSV format\\mnist_test.csv",
+            "MNIST-dataset-in-different-formats-master\\" "data\\CSV format\\mnist_test.csv",
         )
     )
 
