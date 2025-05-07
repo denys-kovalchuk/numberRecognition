@@ -12,7 +12,7 @@ def get_image(name):
     return img_array
 
 
-def main(file):
+def tensorflow_predict(file):
     model = get_model()
     path = os.getcwd()
     head, tail = os.path.split(path)
@@ -25,4 +25,4 @@ def main(file):
 
 if __name__ == "__main__":
     file = "4p.png"
-    main(file)
+    tensorflow_predict(file)

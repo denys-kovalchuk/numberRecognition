@@ -1,7 +1,6 @@
 from fastapi import FastAPI, UploadFile
 from fastapi.params import File
-
-from ML_number_recognizer.predict_number_tensorflow import main
+from ML_number_recognizer.predict_number_tensorflow import tensorflow_predict
 
 app = FastAPI()
 
@@ -23,5 +22,5 @@ async def test() -> dict[str, str]:
 
 @app.post("/number")
 async def predict_number(file: UploadFile = File(...)) -> int:
-    predict = main(file)
+    predict = tensorflow_predict(file)
     return predict
