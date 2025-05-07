@@ -1,7 +1,7 @@
 from fastapi import FastAPI, UploadFile
 from fastapi.params import File
 
-from ML_number_recognizer.predict_number_scikit_learn import main
+from ML_number_recognizer.predict_number_tensorflow import main
 
 app = FastAPI()
 

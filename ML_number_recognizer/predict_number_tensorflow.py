@@ -1,4 +1,4 @@
-from create_tensorflow_model import get_model
+from ML_number_recognizer.create_tensorflow_model import get_model
 from PIL import Image
 import numpy as np
 import os
