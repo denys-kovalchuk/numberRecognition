@@ -17,7 +17,7 @@ async def say_hello(name: str) -> dict[str, str]:
 
 @app.get("/test")
 async def test() -> dict[str, str]:
-    return {"message": "test"}
+    return {"message": "test1"}
 
 
 @app.post("/number")
